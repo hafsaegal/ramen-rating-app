@@ -3,3 +3,72 @@ h1 {
     background-color: black;
     color: white;
 }
+
+/* General Form Styling */
+#new-ramen-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label Styling */
+#new-ramen-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Input and Textarea Styling */
+#new-ramen-form input,
+#new-ramen-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Focused Input Styling */
+#new-ramen-form input:focus,
+#new-ramen-form textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Button Styling */
+#new-ramen-form button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+#new-ramen-form button:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  #new-ramen-form {
+    padding: 15px;
+  }
+
+  #new-ramen-form button {
+    padding: 12px;
+  }
+}
