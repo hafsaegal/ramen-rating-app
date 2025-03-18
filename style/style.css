@@ -1,74 +1,111 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+#ramen-menu{
+    display: flex;
+
+}
+img{
+    width: 230px;
+    height: 230px;
+    margin: 10px;
+    border: 5px solid black;
+    border-radius: 10px;
+
+}
+
 h1 {
     text-align: center;
     background-color: black;
     color: white;
 }
-
-/* General Form Styling */
-#new-ramen-form {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+#ramen-detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1250px;
+    position: relative;
+}
+.overlay-text{
+  position:absolute;
+  transform: translate(-50%, -50%);
+  color: white; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 10px;
+  border-radius: 5px;
 }
 
+h2{
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    font-size: 25px;
+
+}
+/* Container Styling */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+/* Form Styling */
+#ramenForm {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
 /* Label Styling */
-#new-ramen-form label {
+#ramenForm label {
   display: block;
   margin-top: 15px;
   font-weight: bold;
-  color: #333;
+  color:black;
 }
 
 /* Input and Textarea Styling */
-#new-ramen-form input,
-#new-ramen-form textarea {
+#ramenForm input,
+#ramenForm textarea {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
-  border: 2px solid #ccc;
+  border: 1px solid #cccccc;
   border-radius: 4px;
   box-sizing: border-box;
-  font-size: 16px;
 }
 
-/* Focused Input Styling */
-#new-ramen-form input:focus,
-#new-ramen-form textarea:focus {
-  border-color: #4CAF50;
+/* Input Focus Styling */
+#ramenForm input:focus,
+#ramenForm textarea:focus {
+  border-color: #6666ff;
   outline: none;
 }
 
 /* Button Styling */
-#new-ramen-form button {
+#ramenForm button {
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   margin-top: 20px;
   background-color: black;
-  color: white;
   border: none;
   border-radius: 4px;
+  color: #ffffff;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* Button Hover Effect */
-#new-ramen-form button:hover {
-  background-color: #333;
-  transform: scale(1.05);
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-  #new-ramen-form {
-    padding: 15px;
-  }
-
-  #new-ramen-form button {
-    padding: 12px;
-  }
+#ramenForm button:hover {
+  background-color: green;
 }

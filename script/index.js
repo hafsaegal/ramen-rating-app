@@ -41,163 +41,59 @@ const ramens = [
     comment: "Heavenly!",
   },
 ];
+//callback function for displayRamen(to display ramen detail)
+const ramenDetail= document.querySelector("#ramen-detail")
+const displayRamen= (ramen)=>{
+    ramenDetail.innerHTML = `
+    <div id="ramen-detail">
+      <img id="ramen-image" src="${ramen.image}" alt="${ramen.name}" />
 
-//2
-function displayRamens() {
+    </div>
+        <div class="overlay-text">${ramen.name}</div>
+    `;
+    
+}
+//to render/display ramen
+displayRamen(ramens[0])
+
+//Display all the images
+
   const ramenMenu = document.getElementById("ramen-menu");
-  ramens.forEach((ramen) => {
+  const displayRamens=(arrRamens)=>{
+    arrRamens.forEach((ramen) => {
     const img = document.createElement("img");
     img.src = ramen.image;
     img.alt = ramen.name;
-    img.addEventListener("click", displayRamenDetails(ramen));
+    img.addEventListener("click", ()=>displayRamen(ramen));
     ramenMenu.appendChild(img);
-console.log(ramen);
 
   });
 }
 
-// //*new 2, reversed with the above, pushed down
-// document.addEventListener("DOMContentLoaded", () => {
-//   const form = document.getElementById("new-ramen-form");
-//   form.addEventListener("submit", handleFormSubmit);
-// });
+const addRamen = (event) => {
+  event.preventDefault();
+  const formData = new FormData(ramenForm);
+  console.log(formData);
+  const newRamen = {
+    name: formData.get("name"),
+    restaurant: formData.get("restaurant"),
+    image: formData.get("image"),
+    rating: formData.get("rating"),
+    comment: formData.get("comment"),
+  };
+//   ramens.push(newRamen);
+//   displayRamens(ramens);
+  console.log(newRamen);
+};
 
-// 3; //commented out
-function displayRamenDetails(ramen) {
-  document.getElementById("ramen-image").src = ramen.image;
-  document.getElementById("ramen-name").textcontent = ramen.name;
-  document.getElementById("ramen-restaurant").textcontent = ramen.restaurant;
-  document.getElementById("ramen-rating").textContent =
-    "Rating:${ramen.rating}";
-  document.getElementById("ramen-comment").textContent =
-    "Comment:${ramen.comment}";
-}
+const ramenForm = document.querySelector("#ramenForm");
+ramenForm.addEventListener("submit", addRamen);
 
-//new 3*
-// function handleFormSubmit(event) {
-//   event.preventDefault(); // Prevents page refresh
 
-//   // Extract input values
-//   const name = document.getElementById("new-ramen-name").value;
-//   const restaurant = document.getElementById("new-ramen-restaurant").value;
-//   const image = document.getElementById("new-ramen-image").value;
-//   const rating = document.getElementById("new-ramen-rating").value;
-//   const comment = document.getElementById("new-ramen-comment").value;
 
-//   // Create a new ramen object
-//   const newRamen = {
-//     name,
-//     restaurant,
-//     image,
-//     rating,
-//     comment,
-//   };
-
-//   // Add the new ramen to the menu
-//   addRamenToMenu(newRamen);
-
-//   // Reset the form
-//   event.target.reset();
-// }
-3; //commented out
-function displayRamenDetails(ramen) {
-  document.getElementById("ramen-image").src = ramen.image;
-  document.getElementById("ramen-name").textcontent = ramen.name;
-  document.getElementById("ramen-restaurant").textcontent = ramen.restaurant;
-  document.getElementById("ramen-rating").textContent =
-    "Rating:${ramen.rating}";
-  document.getElementById("ramen-comment").textContent =
-    "Comment:${ramen.comment}";
-}
-
-document
-  .getElementById("new-ramen-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    const newRamen = {
-      id: ramens.length + 1,
-      name: document.getElementById("new-ramen-name").value,
-      restaurant: document.getElementById("new-ramen-restaurant").value,
-      image: document.getElementById("new-ramen-image").value,
-      rating: document.getElementById("new-ramen-rating").value,
-      comment: document.getElementById("new-ramen-comment").value,
-    };
-    ramens.push(newRamen);
-    addRamenToMenu(newRamen);
-    this.reset();
-  });
-
-function addRamenToMenu(ramen) {
-  const ramenMenu = document.getElementById("ramen-menu");
-  const img = document.createElement("img");
-  img.src = ramen.image;
-  img.alt = ramen.name;
-  img.addEventListener("click", () => displayRamenDetails(ramen));
-  ramenMenu.appendChild(img);
-}
-
-//4//commented out
-// document.addEventListener("DOMContentLoaded", () => {
-//   const form = document.getElementById("new-ramen-form");
-//   form.addEventListener("submit", handleFormSubmit);
-// });
-//commented out
-// function handleFormSubmit(event) {
-//   event.preventDefault(); // Prevents page refresh
-
-//   // Extract input values//commented out
-//   const name = document.getElementById("new-ramen-name").value;
-//   const restaurant = document.getElementById("new-ramen-restaurant").value;
-//   const image = document.getElementById("new-ramen-image").value;
-//   const rating = document.getElementById("new-ramen-rating").value;
-//   const comment = document.getElementById("new-ramen-comment").value;
-//commented out
-//   // Create a new ramen object
-//   const newRamen = {
-//     name,
-//     restaurant,
-//     image,
-//     rating,
-//     comment,
-//   };
-
-//   // Add the new ramen to the menu
-//   addRamenToMenu(newRamen);
-
-//   // Reset the form
-//   event.target.reset();
-// }
-//commented out
-// function addRamenToMenu(ramen) {
-//   const ramenMenu = document.getElementById("ramen-menu");
-
-//   // Create an img element for the new ramen
-//   const img = document.createElement("img");
-//   img.src = ramen.image;
-//   img.alt = ramen.name;
-
-//   // Add click event to display ramen details
-//   img.addEventListener("click", () => displayRamenDetails(ramen));
-
-//   // Append the new ramen image to the menu
-//   ramenMenu.appendChild(img);
-// }
-
-// function displayRamenDetails(ramens) {
-//   document.getElementById("ramen-image").src = ramens.image;
-//   document.getElementById("ramen-name").textContent = ramens.name;
-//   document.getElementById("ramen-restaurant").textContent = ramens.restaurant;
-//   document.getElementById(
-//     "ramen-rating"
-//   ).textContent = `Rating: ${ramens.rating}`;
-//   document.getElementById(
-//     "ramen-comment"
-//   ).textContent = `Comment: ${ramens.comment}`;
-// }
-//commented out
 function main() {
   displayRamens();
-  addSubmitListener();
+  //addSubmitListener();
 }
 
 document.addEventListener("DOMContentLoaded", main);
