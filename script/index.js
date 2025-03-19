@@ -44,6 +44,7 @@ const ramens = [
 //callback function for displayRamen(to display ramen detail)
 const ramenDetail= document.querySelector("#ramen-detail")
 const displayRamen= (ramen)=>{
+    debugger
     ramenDetail.innerHTML = `
     <div id="ramen-detail">
       <img id="ramen-image" src="${ramen.image}" alt="${ramen.name}" />
@@ -72,8 +73,9 @@ displayRamen(ramens[0])
 
 const addRamen = (event) => {
   event.preventDefault();
+  debugger
   const formData = new FormData(ramenForm);
-  console.log(formData);
+  console.log(formData.get("name"));
   const newRamen = {
     name: formData.get("name"),
     restaurant: formData.get("restaurant"),
@@ -92,7 +94,7 @@ ramenForm.addEventListener("submit", addRamen);
 
 
 function main() {
-  displayRamens();
+  displayRamens(ramens);
   //addSubmitListener();
 }
 
