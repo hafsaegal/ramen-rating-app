@@ -1,4 +1,3 @@
-//1
 const ramens = [
   {
     id: 1,
@@ -42,60 +41,62 @@ const ramens = [
   },
 ];
 //callback function for displayRamen(to display ramen detail)
-const ramenDetail= document.querySelector("#ramen-detail")
-const displayRamen= (ramen)=>{
-    debugger
-    ramenDetail.innerHTML = `
+const ramenDetail = document.querySelector("#ramen-detail");
+const displayRamen = (ramen) => {
+  ramenDetail.innerHTML = `
     <div id="ramen-detail">
       <img id="ramen-image" src="${ramen.image}" alt="${ramen.name}" />
 
     </div>
         <div class="overlay-text">${ramen.name}</div>
     `;
-    
-}
+};
 //to render/display ramen
-displayRamen(ramens[0])
+displayRamen(ramens[0]);
 
 //Display all the images
 
-  const ramenMenu = document.getElementById("ramen-menu");
-  const displayRamens=(arrRamens)=>{
-    arrRamens.forEach((ramen) => {
+const ramenMenu = document.getElementById("ramen-menu");
+const displayRamens = (arrRamens) => {
+  arrRamens.forEach((ramen) => {
     const img = document.createElement("img");
     img.src = ramen.image;
     img.alt = ramen.name;
-    img.addEventListener("click", ()=>displayRamen(ramen));
+    img.addEventListener("click", () => displayRamen(ramen));
     ramenMenu.appendChild(img);
-
   });
-}
+};
 
 const addRamen = (event) => {
   event.preventDefault();
-  debugger
   const formData = new FormData(ramenForm);
   console.log(formData.get("name"));
   const newRamen = {
-    name: formData.get("name"),
-    restaurant: formData.get("restaurant"),
-    image: formData.get("image"),
-    rating: formData.get("rating"),
-    comment: formData.get("comment"),
+    name: ramenForm.name.value,
+    restaurant: ramenForm.restaurant.value,
+    image: ramenForm.image.value,
+    rating: ramenForm.rating.value,
+    comment: ramenForm.comment.value,
   };
-//   ramens.push(newRamen);
-//   displayRamens(ramens);
+  ramens.push(newRamen);
+
+  const img = document.createElement("img");
+  img.src = newRamen.image;
+  img.alt = newRamen.name;
+  img.addEventListener("click", () => displayRamen(newRamen));
+
+  ramenMenu.appendChild(img);
+
   console.log(newRamen);
+
+  ramenForm.reset();
 };
 
 const ramenForm = document.querySelector("#ramenForm");
 ramenForm.addEventListener("submit", addRamen);
 
-
-
 function main() {
   displayRamens(ramens);
-  //addSubmitListener();
 }
 
 document.addEventListener("DOMContentLoaded", main);
